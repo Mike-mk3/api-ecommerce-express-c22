@@ -20,7 +20,6 @@ const usersPost = async (req = request, res = response) => {
     const body = req.body;
     let user = User(body);
 
-    // aqui le realiamos hash al password
     user.password = await bcrypt.hash(user.password, salt);
     await user.save();
 
